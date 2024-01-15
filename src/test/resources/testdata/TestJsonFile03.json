@@ -1,0 +1,35 @@
+[
+  {
+    "firstname": "Anh",
+    "lastname": "NewLastName",
+    "totalprice": 111,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2023-12-28",
+      "checkout": "2024-03-15"
+    },
+    "additionalneeds": "Technology"
+  },
+  {
+    "firstname": "An",
+    "lastname": "NewLastName",
+    "totalprice": 222,
+    "depositpaid": false,
+    "bookingdates": {
+      "checkin": "2023-12-30",
+      "checkout": "2024-03-24"
+    },
+    "additionalneeds": "Technology"
+  },
+  {
+    "firstname": "An",
+    "lastname": "NewLastName",
+    "totalprice": 223,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2023-12-30",
+      "checkout": "2024-03-24"
+    },
+    "additionalneeds": "Technology"
+  }
+]

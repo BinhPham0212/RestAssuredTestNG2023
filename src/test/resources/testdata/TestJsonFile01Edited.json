@@ -1,0 +1,25 @@
+{
+  "key1": "Value for Key1",
+  "department": [
+    "Support",
+    "ERP",
+    "2024"
+  ],
+  "student": {
+    "name": "Anh Tester",
+    "age": 27
+  },
+  "bookingdates": {
+     "checkout" : "2023-12-01",
+     "status" : "false"
+  },
+  "department1": {
+    "name": "HR",
+    "position": {
+      "role": "lead",
+      "years": "3"
+    },
+    "class": "world",
+    "Full name": "HR Leader"
+  }
+}
