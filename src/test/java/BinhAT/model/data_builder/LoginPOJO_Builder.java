@@ -2,6 +2,7 @@ package BinhAT.model.data_builder;
 
 import BinhAT.globals.ConfigsGlobal;
 import BinhAT.model.LoginPOJO;
+import org.testng.annotations.DataProvider;
 
 public class LoginPOJO_Builder {
     //Class de tạo data cho Login POJO
@@ -21,4 +22,5 @@ public class LoginPOJO_Builder {
                         "}";
 
     }
+    
 }

@@ -49,6 +49,19 @@ public class DemoEditJsonFile {
                 "UpdateToNewFile","TestJsonFileEdited.json");
     }
 
+    @Test
+    public void TC_testUpdateConstructor() {
+        String testArrayObject= "src/test/resources/testdata/TestJsonArrayObject.json";
+        String testArrayData01= "src/test/resources/testdata/TestJsonArrayObject02.json";
+        JsonHelper.updateJsonValue(testArrayObject, "people.1.address.city.cityname", "Royalcity");
+    }
+
+    @Test
+    public void TC01_testUpdateConstructor() {
+        String testArrayObject= "src/test/resources/testdata/TestArrayData.json";
+        JsonHelper.updateJsonValue(testArrayObject, "firstname.1", "Bình");
+    }
+
 
 }
 

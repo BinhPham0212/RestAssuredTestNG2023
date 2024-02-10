@@ -1,7 +1,7 @@
 [
   {
     "firstname": "Anh",
-    "lastname": "NewLastName",
+    "lastname": "Lastname",
     "totalprice": 111,
     "depositpaid": true,
     "bookingdates": {
@@ -12,7 +12,7 @@
   },
   {
     "firstname": "An",
-    "lastname": "NewLastName",
+    "lastname": "Lastname",
     "totalprice": 222,
     "depositpaid": false,
     "bookingdates": {

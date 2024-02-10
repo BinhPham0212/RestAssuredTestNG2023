@@ -1,0 +1,23 @@
+{
+  "people": [
+    {
+      "name": "John",
+      "age": 30,
+      "address": {
+        "city": "CityA",
+        "country": "CountryA"
+      }
+    },
+    {
+      "name": "Jane",
+      "age": 28,
+      "address": {
+        "city": {
+          "cityname": "Royalcity",
+          "location": "Hai Ba Trung"
+        },
+        "country": "CountryB"
+      }
+    }
+  ]
+}

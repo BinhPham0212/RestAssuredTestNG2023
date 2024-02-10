@@ -34,4 +34,6 @@ public class BookingBody {
     public void setAdditionalneeds(String additionalneeds) {
         this.additionalneeds = additionalneeds;
     }
+
+
 }

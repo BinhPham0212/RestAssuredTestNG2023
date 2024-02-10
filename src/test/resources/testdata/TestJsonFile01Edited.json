@@ -10,8 +10,8 @@
     "age": 27
   },
   "bookingdates": {
-     "checkout" : "2023-12-01",
-     "status" : "false"
+    "checkout": "2023-12-01",
+    "status": "false"
   },
   "department1": {
     "name": "HR",

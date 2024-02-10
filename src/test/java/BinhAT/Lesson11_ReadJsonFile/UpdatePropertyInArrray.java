@@ -28,7 +28,7 @@ public class UpdatePropertyInArrray {
             // Cập nhật giá trị của trường "lastname" trong phần tử đầu tiên
             if (jsonArray.size() > 0) {
                 //Lấy vị trí object thứ nhất
-                JsonObject firstObject = jsonArray.get(0).getAsJsonObject();
+                JsonObject firstObject = jsonArray.get(2).getAsJsonObject();
                 firstObject.addProperty("lastname", "NewLastName");
             }
 
@@ -50,7 +50,7 @@ public class UpdatePropertyInArrray {
     }
 
     @Test
-    public void testUpdateValueInJson03_ArrayObjectUseFor() {
+    public void testUpdateValueInJson03_ArrayObjectUseForAllIndex() {
 
         Reader reader;
         String filePath = "src/test/resources/testdata/TestJsonFile03.json";
@@ -69,7 +69,7 @@ public class UpdatePropertyInArrray {
                 //dùng vòng lặp for update tất cả các field "lastname" trong Array
                 for(int i=0; i<jsonArray.size(); i++) {
                     JsonObject objectArray = jsonArray.get(i).getAsJsonObject();
-                    objectArray.addProperty("lastname", "NewLastName");
+                    objectArray.addProperty("lastname", "Lastname");
                 }
 
             }

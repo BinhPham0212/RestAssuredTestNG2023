@@ -1,4 +1,6 @@
 package BinhAT.Lesson6_POJO;
+import BinhAT.model.CreateBookingWithList;
+import BinhAT.model.data_builder.CreateBookingWithListBuilder;
 import com.google.gson.Gson;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -46,5 +48,24 @@ public class DemoMultiFields {
         response.then().statusCode(200);
     }
 
+    @Test
+    public void testCreateBookingWithBuilder() {
 
+        String baseUri = "https://restful-booker.herokuapp.com";
+
+        RequestSpecification request = given();
+        request.baseUri(baseUri);
+        request.header("Accept", "application/json")
+                .header("Content-Type", "application/json");
+
+        CreateBookingWithList.BookingBody bookingBodyBuilder = CreateBookingWithListBuilder.getDataBooking();
+        Gson gson = new Gson();
+
+        //Convert POJO to JSON
+        request.body(gson.toJson(bookingBodyBuilder));
+
+        Response response = request.post("/booking");
+        response.prettyPrint();
+        response.then().statusCode(200);
+    }
 }
