@@ -21,7 +21,7 @@ public class CreateMenuItem {
         String json = new Gson().toJson(menu, Restaurant.class);
         System.out.println(json);
         try (FileWriter fileWriter = new FileWriter("src/test/resources/testdata/CreateMenuItem.json")) {
-            new Gson().toJson(menu, Restaurant.class);
+            new Gson().toJson(menu, fileWriter);
         }catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,21 @@
+{
+  "name": "VN Food",
+  "menu123": [
+    {
+      "description": "egg",
+      "price": 12.5
+    },
+    {
+      "description": "chicken",
+      "price": 2.5
+    },
+    {
+      "description": "vegetable",
+      "price": 7.5
+    },
+    {
+      "description": "pig",
+      "price": 11.55
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "people": [
+    {
+      "name": "Dr. Sherron Weber",
+      "age": 19,
+      "address": {
+        "city": "Hicklemouth",
+        "country": "Angola"
+      }
+    },
+    {
+      "name": "Riley Kutch",
+      "age": 19,
+      "address": {
+        "city": "Lake Maximastad",
+        "country": "Palau"
+      }
+    }
+  ]
+}

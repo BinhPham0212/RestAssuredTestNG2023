@@ -41,7 +41,7 @@ public class DemoBaseTest extends BaseTest {
                 .header("Authorization", "Bearer " + TokenGlobal.TOKEN)
                 .body(gson.toJson(registerUserPOJO_lombok));
 
-        Response response = request.when().patch("/user/2");
+        Response response = request.when().patch("/user/6");
         response.prettyPrint();
 
         response.then().statusCode(200);

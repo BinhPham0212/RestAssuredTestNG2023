@@ -18,7 +18,7 @@ public class UserPOJO_Lombok_Builder {
                 .lastName(faker.name().lastName())
                 .phone(phoneNumber)
                 .email(faker.internet().emailAddress())
-                .userStatus(1)
+                .userStatus(faker.number().numberBetween(0,1))
                 .build();
     }
 }
