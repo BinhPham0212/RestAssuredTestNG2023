@@ -12,18 +12,16 @@ import java.util.List;
 @Builder
 public class PeopleData_Lombok {
     private int id;
-    private List<Person> people;
-    private String person;
+    private List<People> people;
 
     @Data
-    @AllArgsConstructor
     @Builder
-    public static class Person {
+    public static class People {
         private String name;
         private int age;
         private Address address;
+
         @Data
-        @AllArgsConstructor
         @Builder
         public static class Address {
             private String city;

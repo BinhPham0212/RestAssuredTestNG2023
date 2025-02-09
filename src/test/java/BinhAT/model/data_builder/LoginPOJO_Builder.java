@@ -14,7 +14,7 @@ public class LoginPOJO_Builder {
                 .build();
     }
 
-    public static String josnDataLogin() {
+    public static String jsonDataLogin() {
         return
                 "{\n" +
                         "   \"username\": \"anhtester\",\n" +

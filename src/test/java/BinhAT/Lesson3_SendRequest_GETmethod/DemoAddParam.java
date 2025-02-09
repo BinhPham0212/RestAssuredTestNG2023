@@ -16,10 +16,11 @@ public class DemoAddParam {
         RequestSpecification request = given();
         request.baseUri("https://api.anhtester.com/api")
                 .basePath("/user")
+                .log().all()
                 .accept("application/json");
 
         //Khai báo tham số đầu vào với hàm queryParam
-        request.queryParam("username", "anhtester2");
+        request.queryParam("username", "theUser");
 //        request.param("username","anhtester2");
 
         Response response = request.when().get();
@@ -30,8 +31,8 @@ public class DemoAddParam {
         response.then().contentType(ContentType.JSON);
 
         //body. theo cấp bậc
-        response.then().body("response.username",equalTo("anhtester2"));
-        response.then().body("response.email",containsString("an1"));
+        response.then().body("response.username",equalTo("theUser"));
+        response.then().body("response.email",containsString("vu"));
     }
 
     @Test
@@ -44,7 +45,7 @@ public class DemoAddParam {
                 .accept("application/json");
 
         //Khai báo tham số đầu vào với hàm queryParam
-        request.queryParam("id", "2");
+//        request.queryParam("id", "5");
         request.param("username","anhtester2");
 
         Response response = request.when().get();
@@ -55,7 +56,7 @@ public class DemoAddParam {
         response.then().contentType(ContentType.JSON);
 
         //body. theo cấp bậc
-        response.then().body("response.id",equalTo(2));
+        response.then().body("response.id",equalTo(5));
         response.then().body("response.email",containsString("an1"));
     }
 }

@@ -35,7 +35,7 @@ public class DemoBaseTest extends BaseTest {
         Gson gson = new Gson();
 
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
                 .accept("application/json")
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + TokenGlobal.TOKEN)
@@ -58,7 +58,7 @@ public class DemoBaseTest extends BaseTest {
         Gson gson = new Gson();
 
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
                 .accept("application/json")
                 .contentType("application/json")
                 .header("Authorization", "Bearer " + TokenGlobal.TOKEN)

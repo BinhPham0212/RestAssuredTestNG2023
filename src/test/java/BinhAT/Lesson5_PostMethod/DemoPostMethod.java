@@ -12,8 +12,7 @@ import static io.restassured.RestAssured.given;
 public class DemoPostMethod {
     @Test
     public void testLoginUser() {
-        RequestSpecification request = given();
-        request.baseUri("https://api.anhtester.com/api")
+        RequestSpecification request = given().baseUri("https://api.anhtester.com/api")
                 .accept("application/json")
                 .contentType("application/json")
                 .body("{\n" +

@@ -1,10 +1,15 @@
 package BinhAT.common;
 
 import BinhAT.globals.ConfigsGlobal;
+import BinhAT.globals.EndPointGlobal;
 import BinhAT.globals.TokenGlobal;
 import BinhAT.helpers.JsonHelper;
 import BinhAT.helpers.PropertiesHelper;
+import BinhAT.keywords.ApiKeyword;
+import BinhAT.listeners.TestListener;
 import BinhAT.model.data_builder.LoginPOJO_Builder;
+import BinhAT.reports.AllureManager;
+import BinhAT.utils.LogUtils;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.ResponseBody;
@@ -13,46 +18,42 @@ import com.google.gson.Gson;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.*;
 
 import java.io.File;
 
 import static io.restassured.RestAssured.given;
 
+@Listeners(TestListener.class)
 public class BaseTest {
-    @BeforeSuite
-    public void setupSuite() {
-        PropertiesHelper.loadAllFiles();
-    }
 
     @BeforeTest
     public void loginUser() {
+        LogUtils.info("********LOGIN USER********");
 //        LoginPOJO loginPOJO = new LoginPOJO(ConfigsGlobal.USERNAME, ConfigsGlobal.PASSWORD);
         LoginPOJO loginPOJO = LoginPOJO_Builder.getDataLogin();
         Gson gson = new Gson();
 
-        RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
-                .accept(ConfigsGlobal.HEADERACCEPT)
-                .contentType(ConfigsGlobal.CONTENTTYPE)
-                .body(gson.toJson(loginPOJO));
-
-        Response response = request.when().post("/login");
+//        RequestSpecification request = given();
+//        request.baseUri(ConfigsGlobal.BASE_URI)
+//                .accept(ConfigsGlobal.HEADERACCEPT)
+//                .contentType(ConfigsGlobal.CONTENTTYPE)
+//                .body(gson.toJson(loginPOJO));
+//
+//        Response response = request.when().post("/login");
+        Response response = ApiKeyword.postNotAuth(EndPointGlobal.EP_LOGIN, gson.toJson(loginPOJO));
         response.then().statusCode(200);
-
         //Lưu giá trị token vào biến TOKEN nhé
-        TokenGlobal.TOKEN = response.getBody().path("token");
-        System.out.println("Token Global: " + TokenGlobal.TOKEN);
+        TokenGlobal.TOKEN = ApiKeyword.getResponseKeyValue(response,"token");
+        LogUtils.info("Token Global: " + TokenGlobal.TOKEN);
+        AllureManager.saveTextLog("Token Global: " + TokenGlobal.TOKEN);
     }
 
 
     public static void patchMethod_UserID(Object objectData, int userId) {
         Gson gson = new Gson();
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
                 .accept(ConfigsGlobal.HEADERACCEPT)
                 .contentType(ConfigsGlobal.CONTENTTYPE)
                 .header("Authorization","Bearer " + TokenGlobal.TOKEN)
@@ -74,7 +75,7 @@ public class BaseTest {
     public static void putMethodByID(Object objectData, String item, int itemId) {
         Gson gson = new Gson();
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
                 .accept(ConfigsGlobal.HEADERACCEPT)
                 .contentType(ConfigsGlobal.CONTENTTYPE)
                 .header("Authorization","Bearer " + TokenGlobal.TOKEN)
@@ -97,7 +98,7 @@ public class BaseTest {
         Gson gson = new Gson();
 
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
                 .accept(ConfigsGlobal.HEADERACCEPT)
                 .contentType(ConfigsGlobal.CONTENTTYPE)
                 .header("Authorization","Bearer " + TokenGlobal.TOKEN)

@@ -12,7 +12,7 @@ public class DemoAddHeader {
     public void testAddHeader() {
         //Khai báo đối tượng request
         RequestSpecification request = given();
-                request.baseUri(ConfigsGlobal.URI)
+                request.baseUri(ConfigsGlobal.BASE_URI)
                 .basePath("/users");
         //Add header theo yêu cầu (syntax: key-value)
         request.header("accept", ConfigsGlobal.HEADERACCEPT);

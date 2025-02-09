@@ -32,7 +32,7 @@ public class BookTest extends BaseTest {
         JsonHelper.updateValueJsonFile(dataFile,"name",faker.job().title());
 
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
 //                .basePath("/category")
                 .accept(ConfigsGlobal.HEADERACCEPT)
                 .contentType(ConfigsGlobal.CONTENTTYPE)
@@ -64,7 +64,7 @@ public class BookTest extends BaseTest {
 
         Gson gson = new Gson();
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
                 .accept(ConfigsGlobal.HEADERACCEPT)
                 .contentType(ConfigsGlobal.CONTENTTYPE)
                 .header("Authorization", "Bearer " + TokenGlobal.TOKEN)

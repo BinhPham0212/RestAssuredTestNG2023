@@ -36,7 +36,7 @@ public class CategoryTest extends BaseTest {
         JsonHelper.updateValueJsonFile(dataFile,"name",faker.job().title());
 
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
 //                .basePath("/category")
                 .accept(ConfigsGlobal.HEADERACCEPT)
                 .contentType(ConfigsGlobal.CONTENTTYPE)
@@ -56,7 +56,7 @@ public class CategoryTest extends BaseTest {
     public void testGetCategoryID() {
         System.out.println("Get Category By ID");
         RequestSpecification request = given();
-        request.baseUri(ConfigsGlobal.URI)
+        request.baseUri(ConfigsGlobal.BASE_URI)
 //                .basePath("/category")
                 .accept(ContentType.JSON)
                 .contentType(ContentType.JSON)
